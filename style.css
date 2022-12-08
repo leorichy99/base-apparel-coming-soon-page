@@ -1,0 +1,280 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=Plus+Jakarta+Sans&family=Rubik:wght@300;400;500&display=swap');
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --desaturated-red: hsl(0, 36%, 70%);
+  --soft-red: hsl(0, 93%, 68%);
+  --dark-grayish-red: hsl(0, 6%, 24%);
+  --input-outline: hsla(0, 6%, 24%, 0.4);
+  --mobile-background-color: hsla(0, 100%, 99%, 0.932);
+}
+
+.validate-email button,
+.section-2 {
+  cursor: pointer;
+}
+
+button,
+input {
+  border: none;
+}
+
+.inner-section h1,
+.email-field {
+  margin-bottom: 30px;
+}
+
+.inner-section p,
+.inner-section h1 span,
+.input input::placeholder {
+  color: var(--desaturated-red);
+}
+
+.section-2,
+.validate-email button,
+.validate-email button img,
+input,
+button {
+  transition: .5s ease;
+}
+
+.validate-email .error-icon,
+small {
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+}
+
+.inner-section h1 span,
+small {
+  font-weight: 300;
+}
+
+.email-field,.container{
+  position: relative;
+}
+
+.logo,.validate-email{
+  position: absolute;
+}
+
+.email-field,.input,.validate-email,.container{
+  display: flex;
+}
+
+p{
+  line-height: 1.5rem;
+}
+
+/* ---------------------------------------------------- */
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  background: url("./images/bg-pattern-desktop.svg") center center / cover;
+}
+
+.logo {
+  left: 100px;
+  top: 60px;
+}
+
+/* section-1 starts here */
+.section-1 {
+  width: 65%;
+  height: 100%;
+  padding: 200px 100px;
+}
+
+.inner-section {
+  max-width: 480px;
+}
+
+.inner-section h1 {
+  font-size: 55px;
+  text-transform: uppercase;
+  letter-spacing: 0.33em;
+  color: var(--dark-grayish-red);
+}
+
+.inner-section p {
+  font-weight: 400;
+  margin-bottom: 45px;
+}
+
+.email-field {
+  align-items: center;
+  width: 100%;
+}
+
+.input {
+  flex-direction: column;
+  width: 100%;
+}
+
+input {
+  margin-bottom: 10px;
+  padding: 20px;
+  border-radius: 15px;
+  outline: 0.5px solid var(--input-outline);
+  width: 100%;
+  caret-color: var(--desaturated-red);
+  font-family: 'Josefin Sans', sans-serif;
+  background: transparent;
+}
+
+.input.error .email {
+  outline: .5px solid var(--soft-red);
+}
+
+.input.error .error_message,
+.input.error+.validate-email .error-icon {
+  opacity: 1;
+}
+
+small {
+  color: var(--soft-red);
+  font-weight: 500;
+  margin-left: 30px;
+}
+
+.validate-email {
+  align-self: flex-start;
+  right: -10px;
+}
+
+.validate-email button {
+  background: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(359, 74%, 77%));
+  width: 90px;
+  height: 55px;
+  border-radius: 25px;
+  transform: translateY(-1px);
+  margin-left: 15px;
+  box-shadow: -8px 10px 10px hsla(359, 74%, 77%, 0.183);
+}
+
+.validate-email button:hover {
+  box-shadow: -8px 10px 10px hsla(359, 74%, 77%, 0.178);
+  opacity: 0.9;
+}
+
+.validate-email button:hover img {
+  transform: translateX(10px);
+}
+
+.validate-email button img {
+  transform: translateX(0);
+}
+
+.validate-email .error-icon {
+  width: 20px;
+  height: 20px;
+  align-self: center;
+  margin-left: -15px;
+}
+
+/* section-1 ends here */
+
+/* section-2 starts here */
+.section-2 {
+  width: 35%;
+  background: url("./images/hero-desktop.jpg") center center / cover;
+}
+
+.section-2 img{
+    height: auto;
+    width: 100%;
+}
+
+.section-2:hover {
+  transform: scale(1.01);
+}
+
+/* Responsiveness across devices */
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column-reverse;
+    background: var(--mobile-background-color);
+  }
+
+  .logo {
+    margin: 30px 0;
+    position: relative;
+    order: 1;
+    top: 0;
+    left: 30px;
+  }
+
+  .section-1,
+  .section-2 {
+    width: 100%;
+  }
+
+  .section-2 {
+    background: url("./images/hero-mobile.jpg") center center / cover;
+    margin-bottom: 30px;
+  }
+
+  .section-1 {
+    padding: 0 50px;
+  }
+
+  .inner-section h1 {
+    font-size: 45px;
+    text-align: center;
+    letter-spacing: 0.3em;
+  }
+}
+
+@media (min-width: 500px) and (max-width: 768px) {
+  .inner-section h1 {
+    text-align: justify;
+    max-width: 100%;
+  }
+
+  .section-2 {
+    height: 400px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 830px) {
+  .section-1 {
+    padding: 200px 20px;
+  }
+
+  .logo{
+    margin-left: 0;
+    left: 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  .section-1 {
+    padding: 0 20px;
+  }
+
+  .section-1 h1 {
+    font-size: 2.3rem;
+  }
+
+  .section-2 {
+    height: 300px;
+  }
+
+  .inner-section p {
+    text-align: center;
+  }
+}
